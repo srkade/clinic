@@ -155,16 +155,55 @@ function Doctors() {
                         </div>
                     </div>
                     <div>
-                        <label htmlFor='title' className='block text-sm font-medium leading-6 text-gray-600'>Todos</label>
+                        <label htmlFor='details' className='block text-sm font-medium leading-6 text-gray-600'>Details</label>
                         <div className='mt-2'>
-                            <Input id="title" name="title" type="text" required value={title} onChange={(e) => setTitle(e.target.value)} className='w-full rounded border py-2 text-gray-900 shadow ring' />
+                            <textarea id="details" name="details" rows="4"  required value={details} onChange={(e) => setDetails(e.target.value)} className='w-full rounded border py-2 text-gray-900 shadow ring' ></textarea>
 
                         </div>
                     </div>
-                </form>
+                    <div>
+                        <label htmlFor='dueDate' className='block text-sm font-medium leading-6 text-gray-600'>Due Date</label>
+                        <div className='mt-2'>
+                            <input id="dueDate" name="dueDate" autoComplete='off' type="date" required value={dueDate} onChange={(e) => setDueDate(e.target.value)} className='w-full rounded border py-2 text-gray-900 shadow ring' />
 
+                        </div>
+                    </div>
+                    <div>
+                      <button
+                      type='submit' className='w-full bg-indigo-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-indigo-700' 
+                      >
+                      {isUpdateMode ? "Update" : "Create Todo"}
+                      </button>
+                    </div>  
+                </form>
             </div>
         </section>
+
+        {/* Right Section */}
+
+        <section className='md:w-1/2 md:max-h-screen overflow-auto md:mt-10 mt-20 mx-auto'>
+          {/* Todo List  */}
+          <div className='p-6 md:p-12 mt-10 rounded-lg shadow-xl w-full max-w-lg bg-white '>
+            <h2 className='text-center text-2xl font-bold leading-9 text-gray-900'>
+              Todo List
+            </h2>
+            {/* todos */}
+            <div className='mt-6 space-y-6 '>
+              {todos.map((todo)=>(
+                <div key={todo.id} className='border p-4 rounded-md shadow-md'>
+                  <h3 className='text-lg font-semibold text-gray-900 break-words'>{todo.title}</h3>
+                    <p className='text-sm text-gray-500'> Due Date :{todo.dueDate}</p>
+                    <p className='text-gray-700 multiline break-words'>
+                      {todo.details }
+                    </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+        </section>
+
     </main>
   )
 }

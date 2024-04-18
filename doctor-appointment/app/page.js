@@ -6,7 +6,7 @@ import Doctors from "./_components/Doctors";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-blue-100">
       {/* Hero Section */}
       <Hero/>
 
