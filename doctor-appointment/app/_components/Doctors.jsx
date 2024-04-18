@@ -196,6 +196,16 @@ function Doctors() {
                     <p className='text-gray-700 multiline break-words'>
                       {todo.details }
                     </p>
+                    <div className='mt-4 space-x-6'>
+                      <button className='px-3 py-1 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md' onClick={()=>handleUpdateClick(todo)}>Update</button>
+                      <button type='button' onClick={async ()=>{
+                        const deletedTodoId= await deleteTodoFromFirestore(todo.id);
+                        if(deletedTodoId){
+                          const updatedTodo = todos.filter((t)=> t.id !== deletedTodoId);
+                          setTodos(updatedTodo)
+                        }
+                      }} className='px-3 py-1 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 rounded-md'>Delete</button>
+                    </div>
                 </div>
               ))}
             </div>
