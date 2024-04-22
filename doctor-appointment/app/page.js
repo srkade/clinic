@@ -2,6 +2,7 @@
 import Hero from "./_components/Hero";
 import CategorySearch from "./_components/CategorySearch";
 import Doctors from "./_components/Doctors";
+import TodoApp from "./_components/TodoApp";
 
 
 export default function Home() {
@@ -12,9 +13,11 @@ export default function Home() {
 
       {/* Search Bar + Category */}
       <CategorySearch/>
-
-      {/* Todos */}
+      {/* Doctors Collectoion */}
       <Doctors/>
+      {/* Todos */}
+      <TodoApp/>
+      
     </div>
   );
 }
